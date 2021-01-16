@@ -1,0 +1,23 @@
+class Solution:
+def nextPermutation(self,perm,N):
+i=N-2
+while i>=0 and perm[i+1]<=perm[i]:
+i=i-1
+
+if i>=0:
+j=N-1
+while j>=0 and perm[j]<=perm[i]:
+j=j-1
+
+temp=perm[i]
+perm[i]=perm[j]
+perm[j]=temp
+
+i=i+1
+last = N-1
+while i<last:
+temp = perm[i]
+perm[i] = perm[last]
+perm[last] = temp
+i=i+1
+last=last-1
